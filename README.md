@@ -1,1 +1,1 @@
-# docker-videoqueue
+Acts as an API to which to send YouTube URLs which will then be automatically downloaded by `yt-dlp` for watching later.
