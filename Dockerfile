@@ -15,3 +15,5 @@ RUN mkdir -p /.cache/yt-dlp && chmod -R 666 /.cache/yt-dlp
 RUN chmod 666 db/schema.rb
 
 CMD [ "/app/entrypoint.sh" ]
+
+LABEL org.opencontainers.image.source https://github.com/digitalpardoe/docker-videoqueue
