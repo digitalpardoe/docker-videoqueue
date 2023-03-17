@@ -1,0 +1,7 @@
+.dockerignore
+.git
+.github
+.ruby-version
+data/*.sqlite3
+Dockerfile
+README.md

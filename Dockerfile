@@ -9,8 +9,7 @@ RUN pip3 install --upgrade yt-dlp
 COPY . /app
 WORKDIR /app
 
-RUN rm -rf Dockerfile data/*.sqlite3 && \
-    bundle install
+RUN bundle install
 
 RUN mkdir -p /.cache/yt-dlp && chmod -R 666 /.cache/yt-dlp
 RUN chmod 666 db/schema.rb
