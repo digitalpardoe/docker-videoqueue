@@ -20,5 +20,5 @@ Send requests to `<your_ip>:<your_port>/add`, it expects a `POST` request contai
 ## Parameters
 
 * `-p 4567:4567` - the port you'd like to expose the API on
-* `-v /app/data` - folder to store the database (you can leave this out if you don't mind possibly losing your queue)
+* `-v /app/data` - folder to store the database (you can leave this out but you'll lose your queue if the container restarts)
 * `-v /downloads` - the folder videos are downloaded into
