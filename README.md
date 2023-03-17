@@ -1,4 +1,4 @@
-Acts as an API to send YouTube URLs to which will then be automatically downloaded by `yt-dlp` for watching later (maybe with Plex).
+Acts as an API to send YouTube URLs to which will be automatically downloaded by `yt-dlp` for watching later (maybe with Plex).
 
 You should be able to send it any URL that `yt-dlp` can handle but it's only tested with YouTube.
 
@@ -15,7 +15,7 @@ docker run \
   digitalpardoe/videoqueue
 ```
 
-Send requests to `<your_ip>:<your_port>/api`, it expects a `POST` request containing JSON in the format `{ url: "<youtube_url>" }` - this works well with Apple's Shortcuts app.
+Send requests to `<your_ip>:<your_port>/add`, it expects a `POST` request containing JSON in the format `{ url: "<youtube_url>" }` - this works well with Apple's Shortcuts app.
 
 ## Parameters
 
