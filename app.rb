@@ -23,7 +23,7 @@ if File.basename($0) != 'rake'
         puts "No videos to download!"
       else
         begin
-          result = system("yt-dlp -f bestvideo[ext=mp4][vcodec!*=av][vcodec!*=vp]+bestaudio[ext=m4a]/best[ext=mp4]/best --recode-video h264 --audio-format aac -o '/downloads/%(uploader)s/%(title)s.%(ext)s' #{video.url}")
+          result = system("yt-dlp -f bestvideo[ext=mp4][vcodec!*=av][vcodec!*=vp]+bestaudio[ext=m4a]/best[ext=mp4]/best --recode-video mp4 --audio-format aac -o '/downloads/%(uploader)s/%(title)s.%(ext)s' #{video.url}")
           if result
             puts "Finished downloading #{video.url}!"
             video.downloaded = true
