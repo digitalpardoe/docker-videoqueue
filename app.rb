@@ -28,15 +28,27 @@ if File.basename($0) != 'rake'
             puts "Finished downloading #{video.url}!"
             video.downloaded = true
             video.save
+          else
+            handle_error(video)
           end
         rescue => e
-          puts "Error: #{e}"
+          handle_error(video)
         end
       end
 
       sleep 60
     end
   end
+end
+
+def handle_error(video)
+  puts "Error downloading #{video.url}!"
+  video.increment!(:retries, 1)
+  if video.retries >= 3
+    puts "Giving up on #{video.url}!"
+    video.downloaded = true
+  end
+  video.save
 end
 
 before do
