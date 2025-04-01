@@ -23,7 +23,7 @@ if File.basename($0) != 'rake'
         puts "No videos to download!"
       else
         begin
-          result = system("yt-dlp -f \"bv[height<=1080][vcodec~='^((he|a)vc|h26[45])']+ba[acodec~='^(aac|mp4a|mp3)']/bv[height<=1080]+ba/bv+ba\" -o \"/downloads/%(uploader)s/%(upload_date)s - %(title)s.%(ext)s\" \"#{video.url}\"")
+          result = system("yt-dlp -f \"bv[height<=1080][vcodec~='^((he|a)vc|h26[45])']+ba[acodec~='^(aac|mp4a)']/bv[height<=1080]+ba/bv+ba\" -o \"/downloads/%(uploader)s/%(upload_date)s - %(title)s.%(ext)s\" \"#{video.url}\"")
           if result
             puts "Finished downloading #{video.url}!"
             video.downloaded = true
