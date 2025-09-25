@@ -1,10 +1,13 @@
 FROM ruby:3.1.6-slim-bullseye
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3 python3-pip ffmpeg build-essential && \
+    apt-get install -y --no-install-recommends python3 python3-pip ffmpeg build-essential curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade yt-dlp
+RUN pip3 install --upgrade yt-dlp[default]
+RUN curl -fsSL https://deno.land/install.sh | sh
+
+ENV PATH="$PATH:/root/.deno/bin"
 
 COPY . /app
 WORKDIR /app
