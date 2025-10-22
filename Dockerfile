@@ -19,4 +19,4 @@ RUN chmod 666 db/schema.rb
 
 CMD [ "/app/entrypoint.sh" ]
 
-LABEL org.opencontainers.image.source https://github.com/digitalpardoe/docker-videoqueue
+LABEL org.opencontainers.image.source=https://github.com/digitalpardoe/docker-videoqueue
