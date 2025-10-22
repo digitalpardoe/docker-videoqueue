@@ -1,13 +1,15 @@
-FROM ruby:3.1.6-slim-bullseye
+FROM ruby:3.4.7-slim-trixie
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3 python3-pip ffmpeg build-essential curl unzip && \
+    apt-get install -y --no-install-recommends python3 pipx ffmpeg build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade yt-dlp[default]
+RUN pipx install yt-dlp[default]
 RUN curl -fsSL https://deno.land/install.sh | sh
 
-ENV PATH="$PATH:/root/.deno/bin"
+ENV PATH="$PATH:/root/.local/bin:/root/.deno/bin"
 
 COPY . /app
 WORKDIR /app
@@ -15,7 +17,6 @@ WORKDIR /app
 RUN bundle install
 
 RUN mkdir -p /.cache/yt-dlp && chmod -R 666 /.cache/yt-dlp
-RUN chmod 666 db/schema.rb
 
 CMD [ "/app/entrypoint.sh" ]
 

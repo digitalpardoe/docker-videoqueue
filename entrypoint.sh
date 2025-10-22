@@ -2,5 +2,4 @@
 
 set -e
 
-rake db:migrate
-ruby app.rb
+bundle exec puma -w 0 -p 4567
