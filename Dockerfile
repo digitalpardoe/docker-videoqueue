@@ -3,7 +3,7 @@ FROM ruby:3.4.7-slim-trixie
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3 pipx ffmpeg build-essential && \
+    apt-get install -y --no-install-recommends python3 pipx ffmpeg build-essential curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pipx install yt-dlp[default]
