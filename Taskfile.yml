@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the videoqueue binary
+    cmds:
+      - mkdir -p dist
+      - go build -o dist/videoqueue main.go
+    sources:
+      - main.go
+      - go.mod
+    generates:
+      - dist/videoqueue
+
+  run:
+    desc: Run the videoqueue application
+    deps: [build]
+    cmds:
+      - ./dist/videoqueue
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - rm -rf dist/
+
+  dev:
+    desc: Build and run for development
+    cmds:
+      - task: build
+      - task: run
