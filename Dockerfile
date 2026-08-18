@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends python3 pipx ffmpeg build-essential curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pipx install yt-dlp[default]
+RUN pipx install --pip-args=--pre "yt-dlp[default]"
 RUN curl -fsSL https://deno.land/install.sh | sh
 
 ENV PATH="$PATH:/root/.local/bin:/root/.deno/bin"
